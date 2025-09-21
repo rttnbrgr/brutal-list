@@ -9,4 +9,11 @@ export default defineSchema({
   numbers: defineTable({
     value: v.number(),
   }),
+  items: defineTable({
+    title: v.string(),
+    description: v.string(),
+    url: v.string(),
+    // createdAt: v.number(),
+    // updatedAt: v.number(),
+  }),
 });
