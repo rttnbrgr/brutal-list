@@ -3,7 +3,6 @@
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import Link from "next/link";
-import ListIndex from "@/components/list-index";
 
 export default function StarterContent() {
   const { viewer, numbers } =
@@ -22,9 +21,9 @@ export default function StarterContent() {
 
   return (
     <div className="flex flex-col gap-8 max-w-lg mx-auto">
+      <h1 className="text-4xl font-bold">Convex + Next.js + Clerk</h1>
       <p>Welcome {viewer ?? "Anonymous"}!</p>
 
-      <ListIndex />
       <p>
         Click the button below and open this page in another window - this data
         is persisted in the Convex cloud database!
