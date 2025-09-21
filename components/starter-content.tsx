@@ -3,7 +3,7 @@
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import Link from "next/link";
-import ListIndex from "@/components/ListIndex";
+import ListIndex from "@/components/list-index";
 
 export default function StarterContent() {
   const { viewer, numbers } =

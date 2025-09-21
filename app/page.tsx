@@ -1,7 +1,7 @@
 "use client";
 
 import { Authenticated, Unauthenticated } from "convex/react";
-import StarterContent from "@/components/StarterContent";
+import StarterContent from "@/components/starter-content";
 import SignInForm from "@/components/sign-in-form";
 import Header from "@/components/app-header";
 
