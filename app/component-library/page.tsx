@@ -8,12 +8,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ArrowLeft, Check, Star, Heart, Settings, Download } from "lucide-react";
+import AppLayout from "@/components/app-layout";
 
 export default function ComponentLibrary() {
   const [checked, setChecked] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   return (
+    <AppLayout>
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-10 bg-background p-4 border-b-2 border-slate-200 dark:border-slate-800 flex flex-row justify-between items-center">
@@ -508,5 +510,6 @@ const [value, setValue] = useState("");
         </section>
       </main>
     </div>
+    </AppLayout>
   );
 }

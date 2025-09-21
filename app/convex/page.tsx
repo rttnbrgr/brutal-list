@@ -2,11 +2,14 @@
 
 import { Authenticated } from "convex/react";
 import StarterContent from "@/components/starter-content";
+import AppLayout from "@/components/app-layout";
 
 export default function Convex() {
   return (
-    <Authenticated>
-      <StarterContent />
-    </Authenticated>
+    <AppLayout>
+      <Authenticated>
+        <StarterContent />
+      </Authenticated>
+    </AppLayout>
   );
 }
