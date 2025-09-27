@@ -13,7 +13,7 @@ export default defineSchema({
     title: v.string(),
     description: v.string(),
     url: v.string(),
-    // createdAt: v.number(),
-    // updatedAt: v.number(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
   }),
 });

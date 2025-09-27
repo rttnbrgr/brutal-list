@@ -16,7 +16,12 @@ export const addItem = mutation({
   },
   handler: async (ctx, args) => {
     console.log("This typescript function is running on the server");
-    await ctx.db.insert("items", args);
+    const now = Date.now();
+    await ctx.db.insert("items", {
+      ...args,
+      createdAt: now,
+      updatedAt: now,
+    });
   },
 });
 
@@ -29,10 +34,12 @@ export const updateItem = mutation({
   },
   returns: v.null(),
   handler: async (ctx, args) => {
+    const now = Date.now();
     await ctx.db.patch(args.id, {
       title: args.title,
       description: args.description,
       url: args.url,
+      updatedAt: now,
     });
     return null;
   },

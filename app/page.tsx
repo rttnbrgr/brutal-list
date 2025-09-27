@@ -1,8 +1,8 @@
 "use client";
 
 import AppLayout from "@/components/app-layout";
-import ListIndex from "@/components/list-index";
-import ListForm from "@/components/list-form";
+import ItemIndex from "@/components/item-index";
+import ItemForm from "@/components/item-form";
 
 export default function Home() {
   return (
@@ -11,13 +11,13 @@ export default function Home() {
         {/* Left side - Form */}
         <div className="flex-1 p-6 border-r border-gray-200">
           <h2 className="text-2xl font-bold mb-4">Add New Item</h2>
-          <ListForm />
+          <ItemForm />
         </div>
 
         {/* Right side - List Index */}
         <div className="flex-1 p-6 overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">Your Items</h2>
-          <ListIndex />
+          <ItemIndex />
         </div>
       </div>
     </AppLayout>

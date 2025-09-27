@@ -10,12 +10,12 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import { Button } from "./ui/button";
-import ListEditForm from "./list-edit-form";
+import ItemEditForm from "./item-edit-form";
 import { Id } from "../convex/_generated/dataModel";
 
-export default function ListIndex() {
-  const items = useQuery(api.list.listItems);
-  const deleteItem = useMutation(api.list.deleteItem);
+export default function ItemIndex() {
+  const items = useQuery(api.item.listItems);
+  const deleteItem = useMutation(api.item.deleteItem);
 
   // Track which items are being edited (set of item IDs)
   const [editingItems, setEditingItems] = useState<Set<Id<"items">>>(new Set());
@@ -43,7 +43,7 @@ export default function ListIndex() {
 
   return (
     <div className="flex flex-col gap-8 max-w-lg mx-auto">
-      <div>ListIndex</div>
+      <div>ItemIndex</div>
 
       {items?.map((item) => (
         <div key={item._id} className="border rounded-lg p-4 space-y-4">
@@ -72,7 +72,7 @@ export default function ListIndex() {
           </div>
 
           {editingItems.has(item._id) && (
-            <ListEditForm
+            <ItemEditForm
               itemId={item._id}
               initialData={item}
               onSuccess={() => handleEditSuccess(item._id)}

@@ -25,8 +25,8 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function ListForm() {
-  const addItem = useMutation(api.list.addItem);
+export default function ItemForm() {
+  const addItem = useMutation(api.item.addItem);
 
   const {
     register,
@@ -54,7 +54,7 @@ export default function ListForm() {
     <div className="flex flex-col gap-8 max-w-lg mx-auto">
       <Card>
         <CardHeader>
-          <CardTitle>Add New Item adfafdadfs</CardTitle>
+          <CardTitle>Add New Item</CardTitle>
           <CardDescription>
             Create a new item for your list with title, description, and URL.
           </CardDescription>

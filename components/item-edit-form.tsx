@@ -27,20 +27,20 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-interface ListEditFormProps {
+interface ItemEditFormProps {
   itemId: Id<"items">;
   initialData: Pick<Doc<"items">, "title" | "description" | "url">;
   onSuccess?: () => void;
   onError?: (error: Error) => void;
 }
 
-export default function ListEditForm({
+export default function ItemEditForm({
   itemId,
   initialData,
   onSuccess,
   onError,
-}: ListEditFormProps) {
-  const updateItem = useMutation(api.list.updateItem);
+}: ItemEditFormProps) {
+  const updateItem = useMutation(api.item.updateItem);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
   const {
