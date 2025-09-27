@@ -78,37 +78,6 @@ export function extractFavicon(html: string, baseUrl: URL): string | null {
   return `${baseUrl.origin}/favicon.ico`;
 }
 
-// Helper function for use in other functions
-export const getUrlMetadataInternal = async (url: string) => {
-  try {
-    const validUrl = new URL(url);
-
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; MetadataBot/1.0)",
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-    }
-
-    const html = await response.text();
-
-    return {
-      title: extractTitle(html),
-      description: extractDescription(html),
-      // favicon: extractFavicon(html, validUrl),
-    };
-  } catch (error) {
-    return {
-      title: null,
-      description: null,
-      // favicon: null,
-    };
-  }
-};
-
 // Simple async function for direct HTTP requests
 export async function fetchUrlMetadata(url: string) {
   try {

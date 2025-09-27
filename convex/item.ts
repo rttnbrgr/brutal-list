@@ -1,15 +1,10 @@
 import { v } from "convex/values";
-import { query, mutation, action } from "./_generated/server";
+import { query, mutation } from "./_generated/server";
 // import {
 //   extractTitle,
 //   extractDescription,
 //   extractFavicon,
-// } from "@/lib/getUrlMetadataInternal";
-import {
-  extractTitle,
-  extractDescription,
-  extractFavicon,
-} from "../lib/getUrlMetadataInternal";
+// } from "../lib/getUrlMetadataInternal";
 
 export const listItems = query({
   handler: async (ctx) => {
@@ -64,65 +59,50 @@ export const deleteItem = mutation({
   },
 });
 
-// export const sendMessage = mutation({
-//   args: {
-//     user: v.string(),
-//     body: v.string(),
-//   },
-//   handler: async (ctx, args) => {
-//     console.log("This typescript function is running on the server");
-//     await ctx.db.insert("messages", {
-//       user: args.user,
-//       body: args.body,
-//     });
+// this isn't working as expected
+// commenting out
+// export const getUrlMetadata = action({
+//   args: { url: v.string() },
+//   handler: async (ctx, { url }) => {
+//     try {
+//       // Validate URL format
+//       const validUrl = new URL(url);
+
+//       // Fetch the HTML content
+//       const response = await fetch(url, {
+//         headers: {
+//           "User-Agent": "Mozilla/5.0 (compatible; MetadataBot/1.0)",
+//         },
+//       });
+
+//       if (!response.ok) {
+//         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+//       }
+
+//       const html = await response.text();
+
+//       // Extract metadata using regex patterns
+//       const title = extractTitle(html);
+//       const description = extractDescription(html);
+//       // const favicon = extractFavicon(html, validUrl);
+
+//       return {
+//         url: validUrl,
+//         title,
+//         description,
+//         // favicon,
+//         success: true,
+//       };
+//     } catch (error) {
+//       console.error("Error fetching metadata:", error);
+//       return {
+//         url: url,
+//         title: null,
+//         description: null,
+//         // favicon: null,
+//         success: false,
+//         error: error instanceof Error ? error.message : "Unknown error",
+//       };
+//     }
 //   },
 // });
-
-// import { action } from "./_generated/server";
-// import { v } from "convex/values";
-
-export const getUrlMetadata = action({
-  args: { url: v.string() },
-  handler: async (ctx, { url }) => {
-    try {
-      // Validate URL format
-      const validUrl = new URL(url);
-
-      // Fetch the HTML content
-      const response = await fetch(url, {
-        headers: {
-          "User-Agent": "Mozilla/5.0 (compatible; MetadataBot/1.0)",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
-
-      const html = await response.text();
-
-      // Extract metadata using regex patterns
-      const title = extractTitle(html);
-      const description = extractDescription(html);
-      // const favicon = extractFavicon(html, validUrl);
-
-      return {
-        url: validUrl,
-        title,
-        description,
-        // favicon,
-        success: true,
-      };
-    } catch (error) {
-      console.error("Error fetching metadata:", error);
-      return {
-        url: url,
-        title: null,
-        description: null,
-        // favicon: null,
-        success: false,
-        error: error instanceof Error ? error.message : "Unknown error",
-      };
-    }
-  },
-});
