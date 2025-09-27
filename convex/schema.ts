@@ -11,9 +11,9 @@ export default defineSchema({
   }),
   items: defineTable({
     title: v.string(),
-    description: v.string(),
+    description: v.optional(v.string()),
     url: v.string(),
-    createdAt: v.number(),
-    updatedAt: v.number(),
+    createdAt: v.optional(v.number()),
+    updatedAt: v.optional(v.number()),
   }),
 });
