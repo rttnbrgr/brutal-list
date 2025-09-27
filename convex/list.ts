@@ -1,14 +1,12 @@
 import { v } from "convex/values";
 import { query, mutation } from "./_generated/server";
 
-// export const listItems = query({
-//   args: {},
-//   handler: async (ctx, args) => {
-//     const items = await ctx.db.query("items").order("desc").take(10);
-
-//     return items;
-//   },
-// });
+export const listItems = query({
+  handler: async (ctx) => {
+    const items = await ctx.db.query("items").order("desc").take(10);
+    return items;
+  },
+});
 
 export const addItem = mutation({
   args: {
@@ -19,6 +17,33 @@ export const addItem = mutation({
   handler: async (ctx, args) => {
     console.log("This typescript function is running on the server");
     await ctx.db.insert("items", args);
+  },
+});
+
+export const updateItem = mutation({
+  args: {
+    id: v.id("items"),
+    title: v.string(),
+    description: v.string(),
+    url: v.string(),
+  },
+  returns: v.null(),
+  handler: async (ctx, args) => {
+    await ctx.db.patch(args.id, {
+      title: args.title,
+      description: args.description,
+      url: args.url,
+    });
+    return null;
+  },
+});
+
+export const deleteItem = mutation({
+  args: {
+    id: v.id("items"),
+  },
+  handler: async (ctx, args) => {
+    await ctx.db.delete(args.id);
   },
 });
 
