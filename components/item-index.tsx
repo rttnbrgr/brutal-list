@@ -3,15 +3,8 @@
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 import { useState } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
-import { Button } from "./ui/button";
-import ItemEditForm from "./item-edit-form";
 import { Id } from "../convex/_generated/dataModel";
+import Item from "./item";
 
 export default function ItemIndex() {
   const items = useQuery(api.item.listItems);
@@ -45,41 +38,18 @@ export default function ItemIndex() {
     <div className="flex flex-col gap-8 max-w-lg mx-auto">
       <div>ItemIndex</div>
 
-      {items?.map((item) => (
-        <div key={item._id} className="border rounded-lg p-4 space-y-4">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <div className="bg-gray-100 p-4 rounded-md">
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p className="max-w-xs break-all">{item.url}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-
-          <div className="flex gap-2">
-            <Button onClick={() => deleteItem({ id: item._id })}>Delete</Button>
-            <Button
-              onClick={() => toggleEdit(item._id)}
-              variant={editingItems.has(item._id) ? "secondary" : "default"}
-            >
-              {editingItems.has(item._id) ? "Cancel Edit" : "Edit"}
-            </Button>
-          </div>
-
-          {editingItems.has(item._id) && (
-            <ItemEditForm
-              itemId={item._id}
-              initialData={item}
-              onSuccess={() => handleEditSuccess(item._id)}
-            />
-          )}
-        </div>
-      ))}
+      <div className="flex flex-col gap-1">
+        {items?.map((item) => (
+          <Item
+            key={item._id}
+            item={item}
+            deleteItem={deleteItem}
+            toggleEdit={toggleEdit}
+            editingItems={editingItems}
+            handleEditSuccess={handleEditSuccess}
+          />
+        ))}
+      </div>
     </div>
   );
 }
