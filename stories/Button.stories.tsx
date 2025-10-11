@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../components/ui/button";
-import { Download, Heart, Plus } from "lucide-react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Button, ButtonProps } from "../components/ui/button";
+import { Plus } from "lucide-react";
 
 const meta: Meta<typeof Button> = {
   title: "UI/Button",
@@ -9,136 +9,91 @@ const meta: Meta<typeof Button> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    variant: {
-      control: { type: "select" },
-      options: [
-        "default",
-        "destructive",
-        "outline",
-        "secondary",
-        "ghost",
-        "link",
-      ],
-    },
-    size: {
-      control: { type: "select" },
-      options: ["default", "sm", "lg", "icon"],
-    },
-    asChild: {
-      control: { type: "boolean" },
-    },
-    disabled: {
-      control: { type: "boolean" },
-    },
-  },
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    children: "Button",
-  },
-};
-
-export const Destructive: Story = {
-  args: {
-    variant: "destructive",
-    children: "Delete",
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: "Outline",
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    variant: "secondary",
-    children: "Secondary",
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-    children: "Ghost",
-  },
-};
-
-export const Link: Story = {
-  args: {
-    variant: "link",
-    children: "Link",
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: "sm",
-    children: "Small",
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: "lg",
-    children: "Large",
-  },
-};
-
-export const Icon: Story = {
-  args: {
-    size: "icon",
-    children: <Download />,
-  },
-};
-
-export const WithIcon: Story = {
-  args: {
-    children: (
-      <>
-        <Plus />
-        Add Item
-      </>
-    ),
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    disabled: true,
-    children: "Disabled",
-  },
-};
+const buttonVariants: ButtonProps["variant"][] = ["fill", "outline", "ghost"];
+const buttonStates = ["default", "hover", "focus-visible", "disabled"];
 
 export const AllVariants: Story = {
   render: () => (
-    <div className="flex flex-wrap gap-4">
-      <Button variant="default">Default</Button>
-      <Button variant="destructive">Destructive</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="link">Link</Button>
+    <div className="flex flex-wrap gap-8">
+      {/* Simple */}
+      <div className="flex flex-wrap gap-4">
+        {buttonVariants.map((variant) => (
+          <div className="flex flex-col gap-3" key={variant}>
+            {buttonStates.map((state) => {
+              const id = `button-${variant}-${state}`;
+              return (
+                <Button
+                  variant={variant}
+                  id={state}
+                  data-state={state}
+                  key={id}
+                  disabled={state === "disabled"}
+                >
+                  Button
+                </Button>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-4">
+        {/* With Icon */}
+        {buttonVariants.map((variant) => (
+          <div className="flex flex-col gap-3" key={variant}>
+            {buttonStates.map((state) => {
+              const id = `button-${variant}-${state}`;
+              return (
+                <Button
+                  variant={variant}
+                  id={state}
+                  data-state={state}
+                  key={id}
+                  disabled={state === "disabled"}
+                >
+                  <Plus size={16} strokeWidth={1.5} />
+                  Button
+                </Button>
+              );
+            })}
+          </div>
+        ))}
+      </div>
     </div>
   ),
 };
 
-export const AllSizes: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Button size="sm">Small</Button>
-      <Button size="default">Default</Button>
-      <Button size="lg">Large</Button>
-      <Button size="icon">
-        <Heart />
-      </Button>
-    </div>
-  ),
+export const Demo: Story = {
+  args: {
+    children: "Click me",
+    variant: "fill",
+    // size: "md",
+    // asChild: false,
+    disabled: false,
+  },
+  argTypes: {
+    variant: {
+      control: { type: "select" },
+      options: ["fill", "outline", "ghost"],
+    },
+    // size: {
+    //   control: { type: "select" },
+    //   options: ["md"],
+    // },
+    // asChild: {
+    //   control: { type: "boolean" },
+    // },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    children: {
+      control: { type: "text" },
+    },
+  },
+  // render: (args) => <Button {...args} />,
+  render: (args) => <Button {...args} />,
 };
