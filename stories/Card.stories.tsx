@@ -7,26 +7,27 @@ import {
   CardContent,
   CardFooter,
   CardAction,
-} from '../components/ui/card'
-import { Button } from '../components/ui/button'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
-import { Checkbox } from '../components/ui/checkbox'
-import { Settings, MoreHorizontal, Star } from 'lucide-react'
+} from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
+import { Checkbox } from "../components/ui/checkbox";
+import { Settings, MoreHorizontal } from "lucide-react";
 
 const meta: Meta<typeof Card> = {
-  title: 'UI/Card',
+  title: "UI/Card",
   component: Card,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     chromatic: {
       chromatic: { disableSnapshot: true },
+    },
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -40,7 +41,7 @@ export const Default: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const WithAction: Story = {
   render: () => (
@@ -49,7 +50,7 @@ export const WithAction: Story = {
         <CardTitle>Settings</CardTitle>
         <CardDescription>Manage your account settings</CardDescription>
         <CardAction>
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="md">
             <MoreHorizontal />
           </Button>
         </CardAction>
@@ -59,7 +60,7 @@ export const WithAction: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const WithFooter: Story = {
   render: () => (
@@ -79,7 +80,7 @@ export const WithFooter: Story = {
       </CardFooter>
     </Card>
   ),
-}
+};
 
 export const WithBorder: Story = {
   render: () => (
@@ -106,7 +107,7 @@ export const WithBorder: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const Compact: Story = {
   render: () => (
@@ -128,7 +129,7 @@ export const Compact: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const WithIcon: Story = {
   render: () => (
@@ -154,7 +155,7 @@ export const WithIcon: Story = {
       </CardContent>
     </Card>
   ),
-}
+};
 
 export const MultipleCards: Story = {
   render: () => (
@@ -168,10 +169,10 @@ export const MultipleCards: Story = {
           <p>Status: In Progress</p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" size="sm">View Details</Button>
+          <Button variant="outline">View Details</Button>
         </CardFooter>
       </Card>
-      
+
       <Card>
         <CardHeader>
           <CardTitle>Project Beta</CardTitle>
@@ -181,10 +182,10 @@ export const MultipleCards: Story = {
           <p>Status: Completed</p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" size="sm">View Details</Button>
+          <Button variant="outline">View Details</Button>
         </CardFooter>
       </Card>
-      
+
       <Card>
         <CardHeader>
           <CardTitle>Project Gamma</CardTitle>
@@ -194,9 +195,9 @@ export const MultipleCards: Story = {
           <p>Status: Planning</p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" size="sm">View Details</Button>
+          <Button variant="outline">View Details</Button>
         </CardFooter>
       </Card>
     </div>
   ),
-}
+};
