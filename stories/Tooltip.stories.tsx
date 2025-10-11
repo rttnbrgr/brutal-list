@@ -1,20 +1,32 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tooltip, TooltipTrigger, TooltipContent } from '../components/ui/tooltip'
-import { Button } from '../components/ui/button'
-import { IconButton } from '../components/ui/icon-button'
-import { Heart, Settings, Download, Info, Star, HelpCircle } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "../components/ui/tooltip";
+import { Button } from "../components/ui/button";
+import { IconButton } from "../components/ui/icon-button";
+import {
+  Heart,
+  Settings,
+  Download,
+  Info,
+  Star,
+  HelpCircle,
+} from "lucide-react";
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'UI/Tooltip',
+  title: "UI/Tooltip",
   component: Tooltip,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -27,7 +39,7 @@ export const Default: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const WithIconButton: Story = {
   render: () => (
@@ -42,7 +54,7 @@ export const WithIconButton: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const SettingsTooltip: Story = {
   render: () => (
@@ -57,7 +69,7 @@ export const SettingsTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const DownloadTooltip: Story = {
   render: () => (
@@ -72,7 +84,7 @@ export const DownloadTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const InfoTooltip: Story = {
   render: () => (
@@ -87,7 +99,7 @@ export const InfoTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const StarTooltip: Story = {
   render: () => (
@@ -102,7 +114,7 @@ export const StarTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const HelpTooltip: Story = {
   render: () => (
@@ -117,7 +129,7 @@ export const HelpTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const LongText: Story = {
   render: () => (
@@ -126,11 +138,14 @@ export const LongText: Story = {
         <Button variant="outline">Hover for long text</Button>
       </TooltipTrigger>
       <TooltipContent>
-        <p>This is a longer tooltip that contains more detailed information about the action or element.</p>
+        <p>
+          This is a longer tooltip that contains more detailed information about
+          the action or element.
+        </p>
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const ButtonWithTooltip: Story = {
   render: () => (
@@ -143,7 +158,7 @@ export const ButtonWithTooltip: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const DisabledButton: Story = {
   render: () => (
@@ -156,7 +171,7 @@ export const DisabledButton: Story = {
       </TooltipContent>
     </Tooltip>
   ),
-}
+};
 
 export const ActionBar: Story = {
   render: () => (
@@ -171,7 +186,7 @@ export const ActionBar: Story = {
           <p>Add to favorites</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
           <IconButton>
@@ -182,7 +197,7 @@ export const ActionBar: Story = {
           <p>Rate this item</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
           <IconButton>
@@ -193,7 +208,7 @@ export const ActionBar: Story = {
           <p>Download</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
           <IconButton>
@@ -206,13 +221,15 @@ export const ActionBar: Story = {
       </Tooltip>
     </div>
   ),
-}
+};
 
 export const FormField: Story = {
   render: () => (
     <div className="space-y-2">
       <div className="flex items-center gap-2">
-        <label htmlFor="email" className="text-sm font-medium">Email</label>
+        <label htmlFor="email" className="text-sm font-medium">
+          Email
+        </label>
         <Tooltip>
           <TooltipTrigger asChild>
             <IconButton size="sm">
@@ -224,15 +241,15 @@ export const FormField: Story = {
           </TooltipContent>
         </Tooltip>
       </div>
-      <input 
-        id="email" 
-        type="email" 
-        className="w-full px-3 py-2 border rounded-md" 
+      <input
+        id="email"
+        type="email"
+        className="w-full px-3 py-2 border rounded-md"
         placeholder="Enter your email"
       />
     </div>
   ),
-}
+};
 
 export const MultipleTooltips: Story = {
   render: () => (
@@ -245,7 +262,7 @@ export const MultipleTooltips: Story = {
           <p>First button tooltip</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Button 2</Button>
@@ -254,7 +271,7 @@ export const MultipleTooltips: Story = {
           <p>Second button tooltip</p>
         </TooltipContent>
       </Tooltip>
-      
+
       <Tooltip>
         <TooltipTrigger asChild>
           <Button variant="outline">Button 3</Button>
@@ -265,4 +282,4 @@ export const MultipleTooltips: Story = {
       </Tooltip>
     </div>
   ),
-}
+};

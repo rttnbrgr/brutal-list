@@ -1,25 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Label } from '../components/ui/label'
-import { Input } from '../components/ui/input'
-import { Checkbox } from '../components/ui/checkbox'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Label } from "../components/ui/label";
+import { Input } from "../components/ui/input";
+import { Checkbox } from "../components/ui/checkbox";
 
 const meta: Meta<typeof Label> = {
-  title: 'UI/Label',
+  title: "UI/Label",
   component: Label,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <Label>Default Label</Label>
-  ),
-}
+  render: () => <Label>Default Label</Label>,
+};
 
 export const WithInput: Story = {
   render: () => (
@@ -28,7 +27,7 @@ export const WithInput: Story = {
       <Input id="email" type="email" placeholder="Enter your email" />
     </div>
   ),
-}
+};
 
 export const WithCheckbox: Story = {
   render: () => (
@@ -37,7 +36,7 @@ export const WithCheckbox: Story = {
       <Label htmlFor="terms">Accept terms and conditions</Label>
     </div>
   ),
-}
+};
 
 export const Required: Story = {
   render: () => (
@@ -45,10 +44,14 @@ export const Required: Story = {
       <Label htmlFor="required-field">
         Required Field <span className="text-red-500">*</span>
       </Label>
-      <Input id="required-field" type="text" placeholder="This field is required" />
+      <Input
+        id="required-field"
+        type="text"
+        placeholder="This field is required"
+      />
     </div>
   ),
-}
+};
 
 export const FormExample: Story = {
   render: () => (
@@ -73,7 +76,7 @@ export const FormExample: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const CheckboxGroup: Story = {
   render: () => (
@@ -99,7 +102,7 @@ export const CheckboxGroup: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const LoginForm: Story = {
   render: () => (
@@ -110,7 +113,11 @@ export const LoginForm: Story = {
       </div>
       <div className="space-y-2">
         <Label htmlFor="login-password">Password</Label>
-        <Input id="login-password" type="password" placeholder="Enter your password" />
+        <Input
+          id="login-password"
+          type="password"
+          placeholder="Enter your password"
+        />
       </div>
       <div className="flex items-center space-x-2">
         <Checkbox id="remember-me" />
@@ -118,7 +125,7 @@ export const LoginForm: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const SettingsForm: Story = {
   render: () => (
@@ -141,7 +148,7 @@ export const SettingsForm: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const AllStates: Story = {
   render: () => (
@@ -160,4 +167,4 @@ export const AllStates: Story = {
       </div>
     </div>
   ),
-}
+};

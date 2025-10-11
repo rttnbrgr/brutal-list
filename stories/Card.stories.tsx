@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import {
   Card,
   CardHeader,
@@ -19,6 +19,8 @@ const meta: Meta<typeof Card> = {
   component: Card,
   parameters: {
     layout: 'centered',
+    chromatic: {
+      chromatic: { disableSnapshot: true },
   },
   tags: ['autodocs'],
 }

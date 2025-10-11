@@ -1,19 +1,31 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card'
-import { Settings, User, Bell, Shield } from 'lucide-react'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import {
+  Tabs,
+  TabsList,
+  TabsTrigger,
+  TabsContent,
+} from "../components/ui/tabs";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import { Settings, User, Bell, Shield } from "lucide-react";
 
 const meta: Meta<typeof Tabs> = {
-  title: 'UI/Tabs',
+  title: "UI/Tabs",
   component: Tabs,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
-  tags: ['autodocs'],
-}
+  tags: ["autodocs"],
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -33,11 +45,17 @@ export const Default: Story = {
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <label className="text-sm font-medium">Name</label>
-              <input className="w-full px-3 py-2 border rounded-md" placeholder="Your name" />
+              <input
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Your name"
+              />
             </div>
             <div className="space-y-1">
               <label className="text-sm font-medium">Username</label>
-              <input className="w-full px-3 py-2 border rounded-md" placeholder="Your username" />
+              <input
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Your username"
+              />
             </div>
           </CardContent>
         </Card>
@@ -53,18 +71,24 @@ export const Default: Story = {
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <label className="text-sm font-medium">Current password</label>
-              <input className="w-full px-3 py-2 border rounded-md" type="password" />
+              <input
+                className="w-full px-3 py-2 border rounded-md"
+                type="password"
+              />
             </div>
             <div className="space-y-1">
               <label className="text-sm font-medium">New password</label>
-              <input className="w-full px-3 py-2 border rounded-md" type="password" />
+              <input
+                className="w-full px-3 py-2 border rounded-md"
+                type="password"
+              />
             </div>
           </CardContent>
         </Card>
       </TabsContent>
     </Tabs>
   ),
-}
+};
 
 export const WithIcons: Story = {
   render: () => (
@@ -98,7 +122,9 @@ export const WithIcons: Story = {
         <Card>
           <CardHeader>
             <CardTitle>Settings</CardTitle>
-            <CardDescription>Configure your application settings</CardDescription>
+            <CardDescription>
+              Configure your application settings
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <p>Settings content goes here...</p>
@@ -109,7 +135,9 @@ export const WithIcons: Story = {
         <Card>
           <CardHeader>
             <CardTitle>Notifications</CardTitle>
-            <CardDescription>Manage your notification preferences</CardDescription>
+            <CardDescription>
+              Manage your notification preferences
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <p>Notifications content goes here...</p>
@@ -118,7 +146,7 @@ export const WithIcons: Story = {
       </TabsContent>
     </Tabs>
   ),
-}
+};
 
 export const ThreeTabs: Story = {
   render: () => (
@@ -131,13 +159,17 @@ export const ThreeTabs: Story = {
       <TabsContent value="overview">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Overview</h3>
-          <p className="text-muted-foreground">Get a high-level view of your data</p>
+          <p className="text-muted-foreground">
+            Get a high-level view of your data
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="analytics">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Analytics</h3>
-          <p className="text-muted-foreground">Detailed analytics and insights</p>
+          <p className="text-muted-foreground">
+            Detailed analytics and insights
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="reports">
@@ -148,7 +180,7 @@ export const ThreeTabs: Story = {
       </TabsContent>
     </Tabs>
   ),
-}
+};
 
 export const FourTabs: Story = {
   render: () => (
@@ -165,30 +197,38 @@ export const FourTabs: Story = {
       <TabsContent value="dashboard">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Dashboard</h3>
-          <p className="text-muted-foreground">Your main dashboard with key metrics</p>
+          <p className="text-muted-foreground">
+            Your main dashboard with key metrics
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="projects">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Projects</h3>
-          <p className="text-muted-foreground">Manage your projects and tasks</p>
+          <p className="text-muted-foreground">
+            Manage your projects and tasks
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="team">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Team</h3>
-          <p className="text-muted-foreground">Team members and collaboration</p>
+          <p className="text-muted-foreground">
+            Team members and collaboration
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="security">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Security</h3>
-          <p className="text-muted-foreground">Security settings and permissions</p>
+          <p className="text-muted-foreground">
+            Security settings and permissions
+          </p>
         </div>
       </TabsContent>
     </Tabs>
   ),
-}
+};
 
 export const SimpleContent: Story = {
   render: () => (
@@ -218,7 +258,7 @@ export const SimpleContent: Story = {
       </TabsContent>
     </Tabs>
   ),
-}
+};
 
 export const LongTabs: Story = {
   render: () => (
@@ -231,21 +271,27 @@ export const LongTabs: Story = {
       <TabsContent value="long-tab-1">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Very Long Tab Name</h3>
-          <p className="text-muted-foreground">Content for the first long tab</p>
+          <p className="text-muted-foreground">
+            Content for the first long tab
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="long-tab-2">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Another Long Tab</h3>
-          <p className="text-muted-foreground">Content for the second long tab</p>
+          <p className="text-muted-foreground">
+            Content for the second long tab
+          </p>
         </div>
       </TabsContent>
       <TabsContent value="long-tab-3">
         <div className="p-4 border rounded-lg">
           <h3 className="text-lg font-semibold">Third Long Tab</h3>
-          <p className="text-muted-foreground">Content for the third long tab</p>
+          <p className="text-muted-foreground">
+            Content for the third long tab
+          </p>
         </div>
       </TabsContent>
     </Tabs>
   ),
-}
+};

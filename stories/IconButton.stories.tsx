@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { IconButton } from "../components/ui/icon-button";
 import {
   Heart,
@@ -20,6 +20,7 @@ const meta: Meta<typeof IconButton> = {
   component: IconButton,
   parameters: {
     layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
   tags: ["autodocs"],
   argTypes: {

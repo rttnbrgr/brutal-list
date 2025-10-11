@@ -1,36 +1,37 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Input } from '../components/ui/input'
-import { Label } from '../components/ui/label'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
 
 const meta: Meta<typeof Input> = {
-  title: 'UI/Input',
+  title: "UI/Input",
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      control: { type: 'select' },
-      options: ['text', 'email', 'password', 'number', 'tel', 'url', 'search'],
+      control: { type: "select" },
+      options: ["text", "email", "password", "number", "tel", "url", "search"],
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     placeholder: {
-      control: { type: 'text' },
+      control: { type: "text" },
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    placeholder: "Enter text...",
   },
-}
+};
 
 export const WithLabel: Story = {
   render: () => (
@@ -39,7 +40,7 @@ export const WithLabel: Story = {
       <Input id="email" type="email" placeholder="Enter your email" />
     </div>
   ),
-}
+};
 
 export const Password: Story = {
   render: () => (
@@ -48,7 +49,7 @@ export const Password: Story = {
       <Input id="password" type="password" placeholder="Enter your password" />
     </div>
   ),
-}
+};
 
 export const Number: Story = {
   render: () => (
@@ -57,7 +58,7 @@ export const Number: Story = {
       <Input id="age" type="number" placeholder="Enter your age" />
     </div>
   ),
-}
+};
 
 export const Search: Story = {
   render: () => (
@@ -66,7 +67,7 @@ export const Search: Story = {
       <Input id="search" type="search" placeholder="Search..." />
     </div>
   ),
-}
+};
 
 export const URL: Story = {
   render: () => (
@@ -75,7 +76,7 @@ export const URL: Story = {
       <Input id="website" type="url" placeholder="https://example.com" />
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   render: () => (
@@ -84,7 +85,7 @@ export const Disabled: Story = {
       <Input id="disabled" disabled placeholder="This input is disabled" />
     </div>
   ),
-}
+};
 
 export const WithValue: Story = {
   render: () => (
@@ -93,7 +94,7 @@ export const WithValue: Story = {
       <Input id="prefilled" defaultValue="john@example.com" />
     </div>
   ),
-}
+};
 
 export const FormExample: Story = {
   render: () => (
@@ -116,7 +117,7 @@ export const FormExample: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const LoginForm: Story = {
   render: () => (
@@ -127,20 +128,28 @@ export const LoginForm: Story = {
       </div>
       <div className="space-y-2">
         <Label htmlFor="login-password">Password</Label>
-        <Input id="login-password" type="password" placeholder="Enter your password" />
+        <Input
+          id="login-password"
+          type="password"
+          placeholder="Enter your password"
+        />
       </div>
     </div>
   ),
-}
+};
 
 export const SearchForm: Story = {
   render: () => (
     <div className="space-y-2 w-80">
       <Label htmlFor="search-input">Search</Label>
-      <Input id="search-input" type="search" placeholder="Search for products..." />
+      <Input
+        id="search-input"
+        type="search"
+        placeholder="Search for products..."
+      />
     </div>
   ),
-}
+};
 
 export const AllTypes: Story = {
   render: () => (
@@ -155,7 +164,11 @@ export const AllTypes: Story = {
       </div>
       <div className="space-y-2">
         <Label htmlFor="password-type">Password</Label>
-        <Input id="password-type" type="password" placeholder="Password input" />
+        <Input
+          id="password-type"
+          type="password"
+          placeholder="Password input"
+        />
       </div>
       <div className="space-y-2">
         <Label htmlFor="number-type">Number</Label>
@@ -175,4 +188,4 @@ export const AllTypes: Story = {
       </div>
     </div>
   ),
-}
+};

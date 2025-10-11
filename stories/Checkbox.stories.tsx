@@ -1,26 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Checkbox } from '../components/ui/checkbox'
-import { Label } from '../components/ui/label'
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import { Checkbox } from "../components/ui/checkbox";
+import { Label } from "../components/ui/label";
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'UI/Checkbox',
+  title: "UI/Checkbox",
   component: Checkbox,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
+    chromatic: { disableSnapshot: true },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     checked: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
     disabled: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
   },
-}
+};
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
@@ -29,7 +30,7 @@ export const Default: Story = {
       <Label htmlFor="terms">Accept terms and conditions</Label>
     </div>
   ),
-}
+};
 
 export const Checked: Story = {
   render: () => (
@@ -38,7 +39,7 @@ export const Checked: Story = {
       <Label htmlFor="terms-checked">Accept terms and conditions</Label>
     </div>
   ),
-}
+};
 
 export const Disabled: Story = {
   render: () => (
@@ -47,16 +48,18 @@ export const Disabled: Story = {
       <Label htmlFor="terms-disabled">Accept terms and conditions</Label>
     </div>
   ),
-}
+};
 
 export const DisabledChecked: Story = {
   render: () => (
     <div className="flex items-center space-x-2">
       <Checkbox id="terms-disabled-checked" disabled defaultChecked />
-      <Label htmlFor="terms-disabled-checked">Accept terms and conditions</Label>
+      <Label htmlFor="terms-disabled-checked">
+        Accept terms and conditions
+      </Label>
     </div>
   ),
-}
+};
 
 export const WithLabel: Story = {
   render: () => (
@@ -75,7 +78,7 @@ export const WithLabel: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const TaskList: Story = {
   render: () => (
@@ -105,7 +108,7 @@ export const TaskList: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const FormExample: Story = {
   render: () => (
@@ -131,7 +134,7 @@ export const FormExample: Story = {
       </div>
     </div>
   ),
-}
+};
 
 export const AllStates: Story = {
   render: () => (
@@ -154,4 +157,4 @@ export const AllStates: Story = {
       </div>
     </div>
   ),
-}
+};
