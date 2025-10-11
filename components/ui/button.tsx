@@ -22,11 +22,11 @@ const fill = "bg-gray-900 text-white hover:bg-gray-700 hover:bg-gray-800";
 const outline =
   "bg-white border border-gray-300 text-gray-900 hover:bg-gray-200";
 const ghost = "bg-transparent text-gray-900 hover:bg-gray-200";
+
 // Mock State
 const mockFillState = "data-[state=hover]:bg-gray-700";
 const mockOutlineState = "data-[state=hover]:bg-gray-200";
 const mockGhostState = "data-[state=hover]:bg-gray-200";
-// const mockFocus = "[data-state=hover]:bg-gray-200";
 const _mockFocus =
   "data-[state=focus-visible]:border-ring data-[state=focus-visible]:ring-black data-[state=focus-visible]:ring-[1px] data-[state=focus-visible]:ring-offset-2 data-[state=focus-visible]:ring-offset-white";
 
@@ -73,4 +73,26 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+const buttonStyles = {
+  // Base
+  box: _box,
+  typography: _typography,
+  svg: _svg,
+  rest: _rest,
+  focus: _focus,
+  disabled: _disabled,
+  ariaInvalid: _ariaInvalid,
+
+  // Variants
+  fill,
+  outline,
+  ghost,
+
+  // Mock State
+  mockFillState,
+  mockOutlineState,
+  mockGhostState,
+  _mockFocus,
+};
+
+export { Button, buttonVariants, buttonStyles };
