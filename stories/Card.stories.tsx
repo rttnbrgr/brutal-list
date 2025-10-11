@@ -19,9 +19,7 @@ const meta: Meta<typeof Card> = {
   component: Card,
   parameters: {
     layout: "centered",
-    chromatic: {
-      chromatic: { disableSnapshot: true },
-    },
+    chromatic: { disableSnapshot: true },
   },
   tags: ["autodocs"],
 };

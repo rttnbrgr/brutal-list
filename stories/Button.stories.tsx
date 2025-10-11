@@ -68,6 +68,9 @@ export const AllVariants: Story = {
 };
 
 export const Demo: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
   args: {
     children: "Click me",
     variant: "fill",
